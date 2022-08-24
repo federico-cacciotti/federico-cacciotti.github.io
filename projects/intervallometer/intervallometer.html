@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Timelapse intervallometer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+  </head>
+  <body bgcolor=white>
+
+    <h1>Timelapse intervallometer</h1>
+    
+    <a href="/index.html">home page</a>
+    <p>An intervallometer is a device that control how often, how long and how many shots are taken, usually with a reflex camera. It's used to make, for example, timelapses.</p>
+    
+    <p>I have a Canon EOS 600D. This camera doesn't have an internal intervallometer. I didn't want to buy an intervallometer, so I installed (at my own risk) a custom firmware with this function. After some tests I noticed that my camera run out of battery after just few hours, in other words, the intervallometer problems became a power supply problem and an external battery pack is so expensive. I had to find another solution.</p>
+    
+    <p>One day I decided to build an external intervallometer using an old and dusty ATmega328P forgotten in a drawer for months. With three seven-semgments display, some switch and two optocouplers I builted my own intervallometer. I also 3D printed the case.</p>
+    
+    <h3>Why optocouplers?</h3>
+    <p>An optocoupler (or optoisolator) is an integrated circuit able to act as a "bridge" between the logic circuit and the camera. It's composed by an LED and a photosensor. When the microcontroller turns on the LED, the photosensor close the contact between the output wires: in this way the logic circuit is electrically isolated from the camera circuit. The answer is therefore: safety. A reflex camera is very expensive and apply random voltages to it isn't the best choice.</p>
+    
+    <p>This is the electric diagram of an optocoupler. You can find more informations on Google.</p>
+    <img src="images/optocoupler_diagram.jpg" class="image" width="50%">
+    
+    <p>This is a simple diagram of a camera jack pinout. With the image below as a reference: GND on the left, focus on the middle and shutter on the right.</p>
+    <img src="images/camera_pinout.png" class="image" width="40%">
+    
+    <p>These are some of the timelapses I took.</p>
+    
+    <p margin-top="2%" margin-bottom="2%"><iframe width="560" height="315" src="https://www.youtube.com/embed/QPDaMdJ226U" frameborder="0" allowfullscreen></iframe></p>
+    
+    <p margin-top="2%" margin-bottom="2%"><iframe width="560" height="315" src="https://www.youtube.com/embed/yQwSCuPvQe8" frameborder="0" allowfullscreen></iframe></p>
+    
+    <p margin-top="2%" margin-bottom="2%"><iframe width="560" height="315" src="https://www.youtube.com/embed/Ug9-hfE5ogU" frameborder="0" allowfullscreen></iframe></p>
+    
+  </body>
+</html>
