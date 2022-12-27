@@ -1,0 +1,16 @@
+[Tue, 16 Jul 1974 17:22:34 GMT]Tynamo-SNAP/1.0.3
+[Tue, 16 Jul 1974 17:22:34 GMT]http://tynamo.qindesign.com/
+[Tue, 16 Jul 1974 17:22:34 GMT](c) 2002-2005 Shawn Silverman
+[Tue, 16 Jul 1974 17:22:34 GMT]Not licensed for commercial use.
+[Tue, 16 Jul 1974 17:22:34 GMT]Processing server properties
+[Tue, 16 Jul 1974 17:22:38 GMT]Processing servlet properties
+[Tue, 16 Jul 1974 17:22:53 GMT]Dewar: init
+[Tue, 16 Jul 1974 17:22:55 GMT]Dewar: Dewar servlet starting
+[Tue, 16 Jul 1974 17:23:09 GMT]Dewar: Bad sensed I on RTD 2
+[Tue, 16 Jul 1974 17:23:13 GMT]Dewar: Loading state machine definition: bin/Dewar.xml
+[Tue, 16 Jul 1974 17:23:32 GMT]Dewar: "diode" tests are deprecated
+[Tue, 16 Jul 1974 17:23:33 GMT]Dewar: "diode" tests are deprecated
+[Tue, 16 Jul 1974 17:23:36 GMT]Dewar: "grtdot" tests are deprecated
+[Tue, 16 Jul 1974 17:23:44 GMT]Dewar: Idle
+[Tue, 16 Jul 1974 17:23:45 GMT]default: init
+[Tue, 16 Jul 1974 17:23:46 GMT]Server started on port 80

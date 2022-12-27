@@ -1,0 +1,14 @@
+/* CSS Stylesheet */
+/* created by Causeway CSS Stylesheet Editor RCS 2005 */
+/* http://www.causeway.co.uk/freestuf/cssedit/ */
+
+.pin {background-color:RGB(255, 255, 153); padding:4px; }
+.grp1 {background-color:#FF69B4; padding:4px; }
+.grp2 {background-color:#BFEFFF; padding:4px; }
+.grp3 {background-color:#836FFF; padding:4px; }
+.grp4 {background-color:#FFB90F; padding:4px; }
+.nc {background-color:#C0C0C0; padding:4px; }
+.earth {background-color:#90EE90; padding:4px; }
+.pinout {border-spacing:10px 10px;
+border-collapse:collapse;
+border:Gray 2px Solid; padding:10pt; }

@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+
+<!-- Trial Dewar definition for running pulse tube fridge - Simon Doyle -->
+<!-- Latest Changes -->
+
+
+<dewar>
+  <defaultstate>idle</defaultstate>
+  <state name="idle">
+    <actions>
+      <message>Idle</message>
+    </actions>
+    <!-- This is the idle state. Do nothing. Wait for nothing. -->
+  </state>
+
+
+<state name="Delay_10_hours">
+    <actions>
+      <message> Waiting_to_cycle</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="0"/> <!-- He3 IC-->
+      <heater chan="3" V="0"/> <!-- He3 UC -->
+      <heater chan="4" V="0.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Start_Cycle">
+                    
+           <timeout time="36000" since="Delay_10_hours"/>                 
+      </if>
+    </tests>
+  </state>
+
+<state name="Delay_12_hours">
+    <actions>
+      <message> Waiting_to_cycle</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="0"/> <!-- He3 IC-->
+      <heater chan="3" V="0"/> <!-- He3 UC -->
+      <heater chan="4" V="0.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Start_Cycle">
+                    
+           <timeout time="43000" since="Delay_12_hours"/>                 
+      </if>
+    </tests>
+  </state>
+
+
+<state name="Delay_15_hours">
+    <actions>
+      <message> Waiting_to_cycle</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="0"/> <!-- He3 IC-->
+      <heater chan="3" V="0"/> <!-- He3 UC -->
+      <heater chan="4" V="0.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Start_Cycle">
+                    
+           <timeout time="54000" since="Delay_15_hours"/>                 
+      </if>
+    </tests>
+  </state>
+
+
+
+
+
+
+<state name="Start_Cycle">
+    <actions>
+      <message> Heating Pumps </message>
+      <heater chan="1" V="25"/> <!-- He4 IC -->
+      <heater chan="2" V="0.0"/> <!-- He3 IC-->
+      <heater chan="3" V="0.0"/> <!-- He3 UC -->
+      <heater chan="4" V="0.0"/> <!-- Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Stable_He4">
+               <diode chan="1" lessthan="1.0721"/> <!--He4 pump > 50K-->       
+      </if>
+    </tests>
+  </state>
+
+
+
+
+
+<state name="Stable_He4">
+    <actions>
+      <message> Stabilising  He4</message>
+      <heater chan="1" V="10.0"/> <!-- He4 IC -->
+      <heater chan="2" V="3.0"/> <!-- He3 IC-->
+      <heater chan="3" V="3.0"/> <!-- He3 UC -->
+      <heater chan="4" V="0.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Pump_He4">
+            <!--Wait 20 min 5for He4 to condense-->        
+           <timeout time="1200" since="Stable_He4"/>             
+      </if>
+    </tests>
+  </state>
+
+
+<state name="Pump_He4">
+    <actions>
+      <message> Pump He4</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="16.0"/> <!-- He3 IC-->
+      <heater chan="3" V="9.0"/> <!-- He3 UC -->
+      <heater chan="4" V="5.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Wait_Turnover">
+                    
+           <timeout time="120" since="Pump_He4"/> <!--Small time delay 2 minutes-->             
+      </if>
+    </tests>
+  </state>
+
+<state name="Wait_Turnover">
+    <actions>
+      <message> Pump He4</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="16.0"/> <!-- He3 IC-->
+      <heater chan="3" V="9.0"/> <!-- He3 UC -->
+      <heater chan="4" V="5.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="0.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="0.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Pump_All">
+                    
+           <grtdot chan="4" lessthan="0" samples="30"/> <!--Wait for IC stage to turn over-->             
+      </if>
+    </tests>
+  </state>
+
+
+
+
+<state name="Pump_All">
+    <actions>
+      <message> Pumping  He3</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="0"/> <!-- He3 IC-->
+      <heater chan="3" V="0"/> <!-- He3 UC -->
+      <heater chan="4" V="5.0"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="5.0"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="5.0"/> <!-- Heat switch He3 UC -->
+    </actions>
+    <tests>
+      <if goto="Cycle_complete_cooling">
+                    
+           <timeout time="3600" since="Pump_All"/>                 
+      </if>
+    </tests>
+  </state>
+
+
+<state name="Cycle_complete_cooling">
+    <actions>
+      <message> Cooling</message>
+      <heater chan="1" V="0"/> <!-- He4 IC -->
+      <heater chan="2" V="0"/> <!-- He3 IC-->
+      <heater chan="3" V="0"/> <!-- He3 UC -->
+      <heater chan="4" V="2.5"/> <!--Heat switch He4 IC -->
+      <heater chan="5" V="2.5"/> <!-- Heat switch He3 IC -->
+      <heater chan="6" V="2.5"/> <!-- Heat switch He3 UC -->
+    </actions>
+    
+  </state>
+
+
+
+</dewar>
+
+
+

@@ -1,0 +1,76 @@
+#NOTE: The server will load faster if unused parts of this file are removed.
+#
+# Default servlet
+# This is specified here so that the "canBrowseDirs" parameter can be
+# specified.  It is okay to delete this mapping from this file.
+#
+default.mapping=/
+default.class=com.qindesign.servlet.DefaultServlet
+default.initParams=canBrowseDirs=true
+default.loadOnStartup=true
+#
+# Demo servlet showing all the request information
+#
+RequestInfo.mapping=/servlet/RequestInfo/*
+RequestInfo.class=com.qindesign.servlet.example.RequestInfoServlet
+#
+# Demo servlet showing authentication
+#
+AuthExample.mapping=/servlet/AuthExample
+AuthExample.class=com.qindesign.servlet.example.AuthExampleServlet
+#
+# Demo servlet showing information about the SNAP
+#
+SnapInfo.mapping=/servlet/SnapInfo
+SnapInfo.class=com.qindesign.servlet.example.SnapInfoServlet
+#
+# Servlet that can view the server and transfer logs
+#
+LogViewer.mapping=/servlet/LogViewer
+LogViewer.class=com.qindesign.servlet.example.LogViewerServlet
+#
+# Useful servlet that can explore all aspects of a 1-Wire system
+#
+OneWireServlet.mapping=/servlet/OneWireServlet
+OneWireServlet.class=com.qindesign.servlet.example.OneWireServlet
+OneWireServlet.initParams=familyCode10=TemperatureInclude,familyCode21=TemperatureInclude,familyCode05=SwitchInclude,familyCode12=SwitchInclude,familyCode1f=SwitchInclude,familyCode29=SwitchInclude,familyCode20=FamilyCode20Include,familyCode2c=PotentiometerInclude
+#
+# Family code includes for use by OneWireServlet
+#
+TemperatureInclude.mapping=
+TemperatureInclude.class=com.qindesign.servlet.example.TemperatureInclude
+SwitchInclude.mapping=
+SwitchInclude.class=com.qindesign.servlet.example.SwitchInclude
+FamilyCode20Include.mapping=
+FamilyCode20Include.class=com.qindesign.servlet.example.FamilyCode20Include
+PotentiometerInclude.mapping=
+PotentiometerInclude.class=com.qindesign.servlet.example.PotentiometerInclude
+#
+# Template demo servlet
+#
+TemplateDemo.mapping=/servlet/TemplateDemo
+TemplateDemo.class=com.qindesign.servlet.example.TemplateDemoServlet
+#
+# Shutdown servlet
+# The authentication password is specified in the "auth" init. param in
+#   "user:password" format.
+#
+#Shutdown.mapping=/servlet/Shutdown
+#Shutdown.class=com.qindesign.servlet.ShutdownServlet
+#Shutdown.initParams=auth=shut:down
+#
+# Utility servlet for sending mail
+# This listens to POST requests only
+# Init. paramter "mailTo" contains the address where the mail should be sent
+#
+#SendMail.mapping=/servlet/SendMail
+#SendMail.class=com.qindesign.servlet.SendMailServlet
+#SendMail.initParams=mailTo=email@address.com
+Dewar.mapping=/servlet/Dewar
+Dewar.class=info.melhuish.dewar.DewarServlet
+Dewar.loadOnStartup=true
+Calib.mapping=/servlet/Calib
+Calib.class=info.melhuish.dewar.CalibServlet
+#Loader.mapping=/servlet/Loader/*
+#Loader.class=com.qindesign.servlet.LoaderServlet
+#Loader.initParams=classpath=/web/classes

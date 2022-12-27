@@ -1,0 +1,14 @@
+<?xml version="1.1"?>
+
+<!-- Trial Dewar definition - Simon Melhuish -->
+
+<dewar>
+  <defaultstate>idle</defaultstate>
+  <state name="idle">
+    <actions>
+      <message>Idle</message>
+    </actions>
+    <!-- This is the idle state. Do nothing. Wait for nothing. -->
+  </state>
+</dewar>
+

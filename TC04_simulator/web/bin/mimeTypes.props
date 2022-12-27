@@ -1,0 +1,22 @@
+#
+# Sample MIME type definitions
+# The default type for an unknown extension is "application/octet-stream"
+#
+.class=application/java-class
+.css=text/css
+.gif=image/gif
+.htm=text/html
+.html=text/html
+.ico=image/x-icon
+.jar=application/java-archive
+.java=text/x-java-source
+.jpeg=image/jpeg
+.jpg=image/jpeg
+.jnlp=application/x-java-jnlp-file
+.js=application/x-javascript
+.pdf=application/pdf
+.png=image/png
+.ser=application/x-java-serialized-object
+.txt=text/plain
+.xml=text/xml
+.zip=application/zip

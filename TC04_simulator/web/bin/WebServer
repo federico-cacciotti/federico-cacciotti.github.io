@@ -1,0 +1,1 @@
+java -classpath /web/bin/tws_core.jar:/web/bin/tws_ext.jar:/web/examples/servlet_examples.jar:/web/bin/myclasses.jar:/web/bin/MinML.jar:/web/classes/ -r com.qindesign.snap.http.Main /web/bin/webserver.props &

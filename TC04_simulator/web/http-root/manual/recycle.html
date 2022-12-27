@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+  <link rel="STYLESHEET" href="../Dewar.css">
+
+  <link rel="stylesheet" type="text/css" media="screen, projection" href="../menu.css">
+  <title>Fridge Recycling</title>
+
+
+</head>
+<body>
+
+<div id="content">
+<h1>Fridge Recycling</h1>
+
+<div class="block">
+<h2>Fridge State</h2>
+
+<form action="Dewar?type=recycle" method="post">
+  <select name="FSTATE">
+  <option value="idle" selected="selected">idle</option>
+  </select>
+
+  <input value="Change State" name="GOFRIDGE" type="submit"></form>
+
+</div>
+
+<form action="Dewar?type=recycle" method="post"><input name="RELOAD" value="Reload xml" type="submit"></form>
+
+</div>
+
+<script language="JavaScript">
+<!--
+window.onload = function(){var horizontals = new simpleMenu('menu-h');};function simpleMenu(navid){if(typeof document.getElementById == 'undefined' || /opera[\/ ][56]/i.test(navigator.userAgent)) {return; }this.iskde = navigator.vendor == 'KDE';this.isie = typeof document.all != 'undefined' && typeof window.opera == 'undefined' && !this.iskde;this.isoldsaf = navigator.vendor == 'Apple Computer, Inc.' && typeof XMLHttpRequest == 'undefined';this.tree = document.getElementById(navid);if(this.tree != null){this.items = this.tree.getElementsByTagName('li');this.itemsLen = this.items.length;var i = 0; do{this.init(this.items[i], this.isie, this.isoldsaf, this.iskde, navid);}while (++i < this.itemsLen);}}simpleMenu.prototype.init = function(trigger, isie, isoldsaf, iskde, navid){trigger.menu = trigger.getElementsByTagName('ul').length > 0 ? trigger.getElementsByTagName('ul')[0] : null;trigger.link = trigger.getElementsByTagName('a')[0];trigger.issub = trigger.parentNode.id == navid;this.openers = { 'm' : 'onmouseover', 'k' : (isie ? 'onactivate' : 'onfocus') };for(var i in this.openers){trigger[this.openers[i]] = function(e){if(!iskde) { trigger.link.className += (trigger.link.className == '' ? '' : ' ') + 'rollover'; }if(trigger.menu != null){trigger.menu.style.left = (isie || isoldsaf) ? trigger.offsetLeft + 'px' : 'auto';trigger.menu.style.top = trigger.issub ? (isie || isoldsaf) ? trigger.link.offsetHeight + 'px' : 'auto' : (isie || isoldsaf) ? trigger.offsetTop + 'px' : '0';}};}this.closers = { 'm' : 'onmouseout', 'k' : (isie ? 'ondeactivate' : 'onblur') };for(i in this.closers){trigger[this.closers[i]] = function(e){this.related = (!e) ? window.event.toElement : e.relatedTarget;if(!this.contains(this.related)){if(!iskde) { trigger.link.className = trigger.link.className.replace(/[ ]?rollover/g, ''); }if(trigger.menu != null){trigger.menu.style['left'] = '-10000px';}}};}if(!isie){trigger.contains = function(node){if (node == null) { return false; }if (node == this) { return true; }else { return this.contains(node.parentNode); }};}}
+// -->
+</script>
+<ul id="menu-h" class="horizontal">
+
+  <li><a href="http://snap03/servlet/Dewar" title="Full Readout"><span></span>Full</a></li>
+
+  <li><a href="http://snap03/servlet/Dewar?type=brief" title="Brief Readout"><span></span>Brief</a></li>
+
+  <li><a href="http://snap03/servlet/Dewar?type=status" title="View status information"><span></span>Status</a>
+    <ul>
+
+      <li><a href="http://snap03/servlet/Dewar?type=printdacs" title="Change heater voltages"><span></span>Set
+Heaters</a></li>
+
+    </ul>
+
+  </li>
+
+  <li><a href="http://snap03/servlet/Dewar?type=info" title="Messages"><span></span>Messages</a>
+  </li>
+
+  <li><a href="http://snap03/servlet/Dewar?type=recycle" title="Fridge recycling"><span></span>Recycle</a></li>
+
+  <li><a href="http://snap03/servlet/Dewar?type=service" title="Service menu"><span></span>Service</a>
+    <ul>
+
+      <li><a href="http://snap03/servlet/Dewar?type=grt" title="RTD control settings"><span></span>Rtd
+Setup</a></li>
+
+      <li><a href="http://snap03/servlet/Dewar?type=hardware" title="Display hardware info">Hardware Info.</a></li>
+
+      <li><a href="http://snap03/servlet/Dewar?type=raw" title="Display raw sensor values">Raw Display</a></li>
+
+      <li><a href="http://snap03/servlet/Dewar?type=parameters" title="Set system parameters">Settings</a></li>
+
+      <li><a href="http://snap03/servlet/Calib" title="Import and assign calibration files">Calibration
+Management</a></li>
+
+      <li><a href="http://snap03/servlet/Dewar?type=calload" title="Load calibrations into main servlet">Reload
+Calibration</a></li>
+
+    </ul>
+
+  </li>
+
+</ul>
+
+</body>
+</html>

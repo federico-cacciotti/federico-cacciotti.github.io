@@ -1,0 +1,21 @@
+#
+# Any property not set here uses the default value.
+#
+#server.bufferSize=1024
+#server.maxHandlers=4
+server.mimeTypesFile=/web/bin/mimeTypes.props
+server.rootDir=/web/http-root
+server.sendServerHeader=true
+server.shutdownEnabled=true
+server.shutdownPasswordFile=/web/logs/shutdown.pwd
+servlet.propsFile=/web/bin/servlets.props
+#
+# It is recommended that the log files be stored in a ramdisk
+# to minimize wear on the flash.
+#
+server.log.logFile=/ram/webserver.log
+server.log.transferLogFile=/ram/transfer.log
+server.log.stackTraceEnabled=true
+#server.log.maxSize=10000
+#server.log.mailTo=
+#server.log.mailFrom=

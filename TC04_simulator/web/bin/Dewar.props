@@ -1,0 +1,27 @@
+#Dewar parameters
+heaters.send=true
+heaters.vmax6=25.00
+heaters.vmax5=25.00
+heaters.vmax4=25.00
+heaters.vmax3=25.00
+grt.version=2
+heaters.vmax2=25.00
+heaters.vmax1=25.00
+raw.send=true
+auth.required=false
+rtd.sendresistance=true
+temperatures.send=true
+diode.version=2
+rtd.dispt=true
+diode.addresses=4
+heaters.name6=6\:\ Still
+heaters.name5=5\:\ <sup>3</sup>He/<sup>4</sup>He\ Cryopump
+diode.banknames=A
+heaters.name4=4\:\ <sup>3</sup>He\ Switch
+heaters.name3=3\:\ <sup>3</sup>He\ Cryopump
+heaters.name2=2\:\ <sup>4</sup>He\ Switch
+heaters.name1=1\:\ <sup>4</sup>He\ Cryopump
+diode.switches=1
+pic.addresses=0x50,0x51,0x52,0x53
+heaters.version=2
+grt.addresses=1,2

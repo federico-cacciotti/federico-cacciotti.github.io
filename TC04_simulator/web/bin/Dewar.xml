@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+
+
+<dewar>
+	<defaultstate>idle</defaultstate>
+	<state name="idle">
+		<actions>
+			<message>Idle</message>
+		</actions>
+<!-- This is the idle state. Do nothing. Wait for nothing. -->
+	</state>
+
+	<state name="wait8hrs">
+		<actions>
+			<message>Wait 8 hrs</message>
+		</actions>
+		<tests>
+			<if goto="start4he">
+				<timeout time="28800" since="wait8hrs"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="wait10hrs">
+		<actions>
+			<message>Wait 10 hrs</message>
+		</actions>
+		<tests>
+			<if goto="start4he">
+				<timeout time="36000" since="wait10hrs"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="wait18p5hrs">
+		<actions>
+			<message>Wait 18:30 hrs</message>
+		</actions>
+		<tests>
+			<if goto="start4he">
+				<timeout time="66600" since="wait18p5hrs"/>
+			</if>
+		</tests>
+	</state>
+  
+  	<state name="wait14hrs">
+		<actions>
+			<message>Wait 14 hrs</message>
+		</actions>
+		<tests>
+			<if goto="start4he">
+				<timeout time="50400" since="wait14hrs"/>
+			</if>
+		</tests>
+	</state>
+  
+	<state name="wait14hrs">
+		<actions>
+			<message>Wait 14 hrs</message>
+		</actions>
+		<tests>
+			<if goto="start4he">
+				<timeout time="50400" since="wait14hrs"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="start4he">
+		<actions>
+			<message>Starting He4 Pump</message>
+			<heater chan="1" V="0.0"/>
+			<heater chan="2" V="0.0"/>
+			<heater chan="3" V="25.0"/>
+			<heater chan="4" V="0.0"/>
+			<heater chan="5" V="0.0"/>
+			<heater chan="6" V="0.0"/>
+		</actions>
+		<tests>
+			<if goto="4he">
+				<diode chan="2" lessthan="1.1078"/>
+			</if>
+		</tests>
+	</state>
+
+	<state name="4he">
+		<actions>
+			<message>He4 Pump</message>
+			<heater chan="1" V="0.0"/>
+			<heater chan="2" V="0.0"/>
+			<heater chan="3" V="25.0"/>
+			<heater chan="4" V="10.0"/>
+			<heater chan="5" V="15.0"/>
+			<heater chan="6" V="0.0"/>
+		</actions>
+		<tests>
+			<if goto="hold4he">
+				<diode chan="2" lessthan="1.0642"/>
+			</if>
+		</tests>
+	</state>
+  
+	<state name="hold4he">
+		<actions>
+			<message>Holding He4 Pump</message>
+			<heater chan="1" V="0.0"/>
+			<heater chan="2" V="0.0"/>
+			<heater chan="3" V="13.0"/>
+			<heater chan="4" V="17.0"/>
+			<heater chan="5" V="15.0"/>
+			<heater chan="6" V="0.0"/>
+		</actions>
+		<tests>
+			<if goto="cool4he">
+				<timeout time="3600" since="hold4he"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="cool4he">
+		<actions>
+			<message>Cooling He4 Pump</message>
+			<heater chan="1" V="0.0"/>
+			<heater chan="2" V="0.0"/>
+			<heater chan="3" V="0.0"/>
+			<heater chan="4" V="17.0"/>
+			<heater chan="5" V="15.0"/>
+			<heater chan="6" V="0.0"/>
+		</actions>
+		<tests>
+			<if goto="drop4he">
+				<timeout time="1800" since="cool4he"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="drop4he">
+		<actions>
+			<message>Dropping 4 He</message>
+			<heater chan="1" V="0.0"/>
+			<heater chan="2" V="5.0"/>
+			<heater chan="3" V="0.0"/>
+			<heater chan="4" V="12.0"/>
+			<heater chan="5" V="15.0"/>
+			<heater chan="6" V="0.0"/>
+		</actions>
+		<tests>
+			<if goto="waitIS">
+				<timeout time="120" since="drop4he"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="waitIS">
+		<actions>
+			<message>Waiting for IS to turn over</message>
+		</actions>
+		<tests>
+			<if goto="drop3heIC">
+			<grtdot chan="2" lessthan="0.0" samples="100"/>
+
+			</if>
+		</tests>
+	</state>
+	
+	<state name="drop3heIC">
+		<actions>
+			<message>Dropping IC 3He</message>
+			<heater chan="1" V="5.0"/>
+			<heater chan="2" V="5.0"/>
+			<heater chan="3" V="0.0"/>
+			<heater chan="4" V="12.0"/>
+			<heater chan="5" V="0.0"/>
+			<heater chan="6" V="0.0"/>
+		</actions>
+		<tests>
+			<if goto="hold3heUC">
+			<value source="rrtd" chan="1" greaterthan="3055"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="hold3heUC">
+		<actions>
+			<message>UC below 3.2 K waiting 30 minutes</message>
+		</actions>
+		<tests>
+			<if goto="finish">
+				<timeout time="1800" since="hold3heUC"/>
+			</if>
+		</tests>
+	</state>
+	
+	<state name="finish">
+		<actions>
+			<message>Finished :)</message>
+			<heater chan="1" V="5.0"/>
+			<heater chan="2" V="5.0"/>
+			<heater chan="3" V="0.0"/>
+			<heater chan="4" V="0.0"/>
+			<heater chan="5" V="0.0"/>
+			<heater chan="6" V="5.0"/>
+		</actions>
+	</state>
+</dewar>

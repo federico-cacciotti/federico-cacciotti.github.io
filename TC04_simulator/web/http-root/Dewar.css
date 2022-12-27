@@ -1,0 +1,27 @@
+/* CSS Stylesheet */
+/* created by Causeway CSS Stylesheet Editor RCS 2005 */
+/* http://www.causeway.co.uk/freestuf/cssedit/ */
+
+table.rdt {background-color:White; border-spacing:0px 0px;
+border-collapse:collapse;
+border:Gray 2px Solid; }
+table.rdt th {text-align:Left; border:Gray 2px Solid; padding:2px; }
+table.rdt td {border:Gray 2px Solid; padding:2px; }
+.heater {background-color:Yellow; }
+.status {background-color:MAGENTA; }
+.brief {background-color:WHEAT; }
+.diode {background-color:CYAN; }
+.rtd {background-color:ORANGE; }
+.na {background-color:Gray; }
+.good {text-align:Center; background-color:Lime; }
+.bad {text-align:Center; background-color:Red; }
+h1 {font-family:sans-serif; font-size:x-large; }
+h2 {font-family:sans-serif; font-size:large; }
+.dsw {background-color:Silver; }
+.rtdoff {font-weight:bold; font-style:italic; text-align:Center; color:ORANGE; }
+.temp {background-color:Fuchsia; }
+.block {margin-bottom:5pt; background-color:#E2DCFC; border:Olive Thin Dotted; padding:5pt; }
+.block table {padding-left:10pt; }
+.block h2 {margin-top:0; margin-bottom:5pt; }
+.warn {font-style:italic; color:Red; }
+.all {background-color:#CCCCFF; }

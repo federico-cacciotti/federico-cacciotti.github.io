@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Send Feedback</title>
+    <style type="text/css">
+        body { font-family: Verdana, sans-serif }
+    </style>
+</head>
+<body bgcolor="Black">
+<center><table border="0" width="70%" cellspacing="1" cellpadding="4">
+
+    <tr><th bgcolor="Yellow">
+        Sample Feedback Page
+    </th></tr>
+    <tr><td bgcolor="White">
+        This page demonstrates how to use the <code>SendMail</code> example
+        servlet.
+
+        <form action="/servlet/SendMail" method="post">
+        <p>
+        <strong>From (email)</strong><br />
+        <input type="text" size="50" name="from" />
+        </p>
+
+        <p>
+        <strong>Subject</strong><br />
+        <input type="text" size="50" name="subject" value="Web server feedback"/>
+        </p>
+
+        <p>
+        <strong>Message Content</strong><br />
+        <textarea cols="50" name="content" rows="10"></textarea><br />
+        <input type="hidden" name="nextPath" value="/feedback-sent.html" />
+        <input type="submit" value="Send" /><input type="reset" value="Clear" />
+        </p>
+        </form>
+    </td></tr>
+
+</table></center>
+</body>
+</html>
